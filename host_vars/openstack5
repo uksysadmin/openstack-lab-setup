@@ -1,0 +1,34 @@
+roles:
+  - role: network_interface
+network_vlan_interfaces:
+  - device: p2p1
+    vlan: 236
+    bootproto: manual
+  - device: p2p1
+    vlan: 240
+    bootproto: manual
+network_bridge_interfaces:
+  - device: br-mgmt
+    type: bridge
+    address: 172.29.236.105
+    netmask: 255.255.255.0
+    bootproto: static
+    stp: "off"
+    ports: [p2p1.236]
+  - device: br-vxlan
+    type: bridge
+    address: 172.29.240.105
+    netmask: 255.255.255.0
+    bootproto: static
+    stp: "off"
+    ports: [p2p1.240]
+  - device: br-vlan
+    type: bridge
+    bootproto: manual
+    stp: "off"
+    ports: [p2p1]
+  - device: br-host
+    type: bridge
+    bootproto: dhcp
+    stp: "off"
+    ports: [em1]
