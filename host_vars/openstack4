@@ -27,8 +27,3 @@ network_bridge_interfaces:
     bootproto: manual
     stp: "off"
     ports: [p2p1]
-  - device: br-host
-    type: bridge
-    bootproto: dhcp
-    stp: "off"
-    ports: [em1]
