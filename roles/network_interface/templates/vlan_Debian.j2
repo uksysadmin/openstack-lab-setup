@@ -1,0 +1,11 @@
+{% if item.bootproto == 'static' %}
+iface {{ item.device }}. {{ item.vlan }}
+inet manual
+vlan-raw-device {{ item.device }}
+{% endif %}
+
+{% if item.bootproto == 'manual' %}
+iface {{ item.device }}.{{ item.vlan }}
+inet manual
+vlan-raw-device {{ item.device }}
+{% endif %}
